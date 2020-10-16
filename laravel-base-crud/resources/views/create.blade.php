@@ -4,6 +4,8 @@
         @csrf
 
         @method('POST')
+        <label for="title">Nome dolce</label>
+        <input type="text" name="nome_dolce" placeholder="Nome Dolce" id='nome_dolce'>
         <label for="title">Quantita</label>
         <input type="text" name="Quantita" placeholder="Quantita" id='Quantita'>
         <label for="content">Glutine</label>

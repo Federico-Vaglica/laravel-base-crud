@@ -15,7 +15,7 @@ class CreateBakeriesTable extends Migration
     {
         Schema::create('bakeries', function (Blueprint $table) {
             $table->id();
-            $table->string('nome dolce','100');
+            $table->string('nome_dolce','100');
             $table->string('Quantita');
             $table->string('Glutine','2');
             $table->timestamps();

@@ -37,7 +37,8 @@ class BakeryController extends Controller
     {
         $data = $request->all();
         $newCake = new Bakery;
-        // $newCake->Quantita = $data['Quantita'];
+        $newCake->nome_dolce = $data['nome_dolce'];
+        $newCake->Quantita = $data['Quantita'];
         $newCake->Glutine = $data['Glutine'];
         $saved = $newCake->save();
         dd($saved);
