@@ -37,9 +37,7 @@ class BakeryController extends Controller
     {
         $data = $request->all();
         $newCake = new Bakery;
-        $newCake->nome_dolce = $data['nome_dolce'];
-        $newCake->Quantita = $data['Quantita'];
-        $newCake->Glutine = $data['Glutine'];
+        $newCake->fill($data);
         $saved = $newCake->save();
         dd($saved);
     }
@@ -50,20 +48,26 @@ class BakeryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
+
+    // public function show($id)
+    // {
+    //     $bakery = Bakery::find($id);
+    //     return view('show',compact('bakery'));
+    // }
+    public function show(Bakery $bakery)
+    {
+        return view('show',compact('bakery'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Bakery $bakery)
     {
-        //
+        return view('create',compact('bakery'));
     }
 
     /**
@@ -73,9 +77,11 @@ class BakeryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bakery $bakery)
     {
-        //
+        $data = $request->all();
+        $bakery->update($data);
+        return view('show',compact('bakery'));
     }
 
     /**
